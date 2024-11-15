@@ -3,7 +3,7 @@ import re
 import argparse
 
 # create args
-parser = argparse.ArgumentParser(prog="filetoplink", description="Gives pixiv link given a pixiv filename")
+parser = argparse.ArgumentParser(prog="plink", description="Gives pixiv link given a pixiv filename")
 parser.add_argument(
     "-O", "--output",
     default="output.txt",
