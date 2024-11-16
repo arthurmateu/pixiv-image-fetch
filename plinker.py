@@ -24,7 +24,7 @@ with open(input_file) as file:
         count += 1
         if count % limit == 0:
             pause = input("Continue? [Y/n] - ").upper()
-            if pause == 'N' or pause == 'NO':
+            if pause and pause[0] == 'N':
                 print(f"Last accessed: {link[:-1]} (index {count})")
                 break
     print("Done!")
