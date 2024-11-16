@@ -14,7 +14,7 @@ args = parser.parse_args()
 
 
 # create variables
-limit = args.limit
+limit = int(args.limit)
 input_file = args.input
 links, count = [], 0
 
@@ -22,9 +22,9 @@ with open(input_file) as file:
     for link in file:
         webbrowser.open_new_tab(link)
         count += 1
-        if count == limit:
-            pause = input("Would you like to pause? [y/N] - ")
-            if pause.upper() == 'Y':
-                print(f"Last link accessed: {link}")
+        if count % limit == 0:
+            pause = input("Continue? [Y/n] - ").upper()
+            if pause == 'N' or pause == 'NO':
+                print(f"Last accessed: {link[:-1]} (index {count})")
                 break
-            count = 0
+    print("Done!")
